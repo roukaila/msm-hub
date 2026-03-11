@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+:root {
+  /* Variables Stitsh */
+  --primary-emerald: #10b981;
+  --primary-glow: rgba(16, 185, 129, 0.3);
+  --dark-bg: #09090b;
+  --card-bg: #18181b;
+  --glass-bg: rgba(24, 24, 27, 0.7);
+}
+
+@theme inline {
+  --color-primary-emerald: var(--primary-emerald);
+  --color-primary-glow: var(--primary-glow);
+  --color-dark-bg: var(--dark-bg);
+  --color-card-bg: var(--card-bg);
+  --color-glass-bg: var(--glass-bg);
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: #ffffff;
+}
+
+/* Stitsh Utility Classes */
+@layer utilities {
+  .glass-morphism {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .premium-shadow {
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  .emerald-glow {
+    box-shadow: 0 0 20px var(--primary-glow);
+  }
+
+  .perspective-card {
+    transform: perspective(1000px) rotateX(2deg);
+  }
+}
