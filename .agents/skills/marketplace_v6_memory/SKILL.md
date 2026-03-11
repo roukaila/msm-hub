@@ -46,3 +46,13 @@ Ces informations doivent être consultées par tout agent avant de commencer une
 
 > ⚠️ Note pour les futurs déploiements: 
 > Pensez toujours à exécuter `npm run build` localement pour vérifier les erreurs TypeScript strictes liées aux jointures de tables Supabase (ex: variables contenant des objets imbriqués) avant de redemander un déploiement Vercel.
+
+## 5. Priorité pour la prochaine session (Erreur Vercel)
+**Symptôme :** Le déploiement a échoué sur Vercel lors de l'étape "Exécution de TypeScript…".
+**Log fourni par le client :**
+```text
+Le déploiement a échoué en raison d'une erreur.
+✓ Compilation réussie en 9,5 s
+Exécution de TypeScript…
+```
+**Action requise :** Le script `npm run build` a pu passer sur notre terminal local, mais la vérification TypeScript stricte de Vercel (souvent liée à `tsc --noEmit` pendant le workflow de build cloud) a détecté des erreurs (potentiellement des types *any* résiduels liés à Supabase). Demain, il faudra lancer `npx tsc --noEmit` en local ou ouvrir les logs complets de Vercel pour identifier le fichier exact provoquant le crash.
